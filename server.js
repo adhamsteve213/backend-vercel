@@ -20,9 +20,17 @@ ConnectDB().then(() => {
   console.error("Error connecting to the database:", error);
 });
 
+const allowedOrigins = [
+  "https://candid-kringle-d5677f.netlify.app",
+  "https://melodic-crisp-d33907.netlify.app",
+];
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 // Enable CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL || ["https://candid-kringle-d5677f.netlify.app", "https://melodic-crisp-d33907.netlify.app"],
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
