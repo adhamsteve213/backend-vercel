@@ -22,7 +22,7 @@ ConnectDB().then(() => {
 
 // Enable CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL || ["http://localhost:3000", "https://candid-kringle-d5677f.netlify.app","https://mern-frontend-149b.vercel.app/"],
+  origin: process.env.FRONTEND_URL || [,"https://euphonious-daifuku-f62d43.netlify.app/"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
